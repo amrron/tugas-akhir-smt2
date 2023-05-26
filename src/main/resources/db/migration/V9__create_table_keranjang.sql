@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS keranjang (
     sub_total INT NOT NULL,
     status_pesan BOOLEAN NOT NULL,
     FOREIGN KEY (id_pembeli)
-    REFERENCES users (id_pembeli),
+    REFERENCES pembeli (id_pembeli),
     FOREIGN KEY (id_barang)
     REFERENCES barang (id_barang)
 );
