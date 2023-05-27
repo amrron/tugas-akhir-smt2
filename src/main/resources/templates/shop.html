@@ -126,135 +126,20 @@
         </div>
 
         <div class="content-shop">
-            <div class="box-product">
+            <div class="box-product" th:each="barang : ${databarang}">
                 <form>
                     <div class="sell-box-bg">
                         <a href="">
-                            <img src="/image/product/sofa/sofa-D0001.jpg" class="bg" alt="">
+                            <img th:src="${barang.gambar_url}" class="bg" alt="">
                         </a>
                         <div class="to-cart">
                             <button type="submit" class="cursor-pointer-custom josefin">tambah ke keranjang</button>
                         </div>
                     </div>
                     <div class="text">
-                        <p class="sellCategory">Sofa</p>
-                        <p><span class="sellProduct">Sofa</span> tipe <span class="tipe">(D0001)</span></p>
-                        <p class="sellPrice">Rp 0</p>
-                    </div>
-
-                    <input type="hidden" name="fileName" value="fileName">
-                    <input type="hidden" name="category" value="category">
-                    <input type="hidden" name="productName" value="productName">
-                    <input type="hidden" name="tipe" value="tipe">
-                    <input type="hidden" name="price" value="price">
-                </form>
-            </div>
-            <div class="box-product">
-                <form>
-                    <div class="sell-box-bg">
-                        <a href="">
-                            <img src="/image/product/lemari/lemari-D0002.jpg" class="bg" alt="">
-                        </a>
-                        <div class="to-cart">
-                            <button type="submit" class="cursor-pointer-custom josefin">tambah ke keranjang</button>
-                        </div>
-                    </div>
-                    <div class="text">
-                        <p class="sellCategory">Lemari</p>
-                        <p><span class="sellProduct">Lemari</span> tipe <span class="tipe">(D0002)</span></p>
-                        <p class="sellPrice">Rp 0</p>
-                    </div>
-
-                    <input type="hidden" name="fileName" value="fileName">
-                    <input type="hidden" name="category" value="category">
-                    <input type="hidden" name="productName" value="productName">
-                    <input type="hidden" name="tipe" value="tipe">
-                    <input type="hidden" name="price" value="price">
-                </form>
-            </div>
-            <div class="box-product">
-                <form>
-                    <div class="sell-box-bg">
-                        <a href="">
-                            <img src="/image/product/meja/meja-D0005.jpg" class="bg" alt="">
-                        </a>
-                        <div class="to-cart">
-                            <button type="submit" class="cursor-pointer-custom josefin">tambah ke keranjang</button>
-                        </div>
-                    </div>
-                    <div class="text">
-                        <p class="sellCategory">Meja</p>
-                        <p><span class="sellProduct">Meja</span> tipe <span class="tipe">(D0005)</span></p>
-                        <p class="sellPrice">Rp 0</p>
-                    </div>
-
-                    <input type="hidden" name="fileName" value="fileName">
-                    <input type="hidden" name="category" value="category">
-                    <input type="hidden" name="productName" value="productName">
-                    <input type="hidden" name="tipe" value="tipe">
-                    <input type="hidden" name="price" value="price">
-                </form>
-            </div>
-            <div class="box-product">
-                <form>
-                    <div class="sell-box-bg">
-                        <a href="">
-                            <img src="/image/product/kursi/kursi-D0003.jpg" class="bg" alt="">
-                        </a>
-                        <div class="to-cart">
-                            <button type="submit" class="cursor-pointer-custom josefin">tambah ke keranjang</button>
-                        </div>
-                    </div>
-                    <div class="text">
-                        <p class="sellCategory">Kursi</p>
-                        <p><span class="sellProduct">Kursi</span> tipe <span class="tipe">(D0003)</span></p>
-                        <p class="sellPrice">Rp 0</p>
-                    </div>
-
-                    <input type="hidden" name="fileName" value="fileName">
-                    <input type="hidden" name="category" value="category">
-                    <input type="hidden" name="productName" value="productName">
-                    <input type="hidden" name="tipe" value="tipe">
-                    <input type="hidden" name="price" value="price">
-                </form>
-            </div>
-            <div class="box-product">
-                <form>
-                    <div class="sell-box-bg">
-                        <a href="">
-                            <img src="/image/product/tanaman/echeveria-D0001.jpg" class="bg" alt="">
-                        </a>
-                        <div class="to-cart">
-                            <button type="submit" class="cursor-pointer-custom josefin">tambah ke keranjang</button>
-                        </div>
-                    </div>
-                    <div class="text">
-                        <p class="sellCategory">Tanaman hias</p>
-                        <p><span class="sellProduct">Echeveria</span> tipe <span class="tipe">(D0001)</span></p>
-                        <p class="sellPrice">Rp 0</p>
-                    </div>
-
-                    <input type="hidden" name="fileName" value="fileName">
-                    <input type="hidden" name="category" value="category">
-                    <input type="hidden" name="productName" value="productName">
-                    <input type="hidden" name="tipe" value="tipe">
-                    <input type="hidden" name="price" value="price">
-                </form>
-            </div>
-            <div class="box-product">
-                <form>
-                    <div class="sell-box-bg">
-                        <a href="">
-                            <div class="bg" style="background-image: url(/image/product/lampu/lampu-D0004.jpg);"></div>
-                        </a>
-                        <div class="to-cart">
-                            <button type="submit" class="cursor-pointer-custom josefin">tambah ke keranjang</button>
-                        </div>
-                    </div>
-                    <div class="text">
-                        <p class="sellCategory">Lampu</p>
-                        <p><span class="sellProduct">Lampu</span> tipe <span class="tipe">(D0004)</span></p>
-                        <p class="sellPrice">Rp 0</p>
+                        <p class="sellCategory" th:text="${barang.id_kategori}"></p>
+                        <p><span class="sellProduct" th:text="${barang.nama_barang}"></span></p>
+                        <p class="sellPrice" th:text="${barang.harga}"></p>
                     </div>
 
                     <input type="hidden" name="fileName" value="fileName">

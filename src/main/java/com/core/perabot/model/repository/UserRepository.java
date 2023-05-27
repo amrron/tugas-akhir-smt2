@@ -6,9 +6,8 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
-
 public interface UserRepository extends JpaRepository<Pembeli, Long> {
 
-    @Query("SELECT u FROM Pembeli u WHERE u.nama_pembeli = :namaPembeli")
+    @Query("SELECT p FROM Pembeli p WHERE p.nama_pembeli = :namaPembeli")
     List<Pembeli> findByNamaPembeli(String namaPembeli);
 }
