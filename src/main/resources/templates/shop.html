@@ -103,7 +103,7 @@
 
             <div class="box-product" id="box-product" th:each="d : ${databarang}">
                 <div class="sell-box-bg">
-                    <a href="/shop/detail-product/namaproduk">
+                    <a th:href="@{'/detail-product/'+${d.id_barang}}">
                         <img th:src="${d.gambar_url}" class="bg">
                     </a>
                     <div id="boxLoading" class="boxLoading-hide">

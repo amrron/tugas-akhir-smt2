@@ -1,4 +1,4 @@
-const widthBox = document.querySelector('main.detail-product .right .ac')
+const widthBox = document.querySelector('main.detail-product .right')
 const inputNumber = widthBox.querySelector('#custom-number')
 const plus = widthBox.querySelector('#plus')
 const min = widthBox.querySelector('#min')
@@ -134,9 +134,9 @@ window.onclick = (e)=>{
 }
 
 //----------------------------------------------------------------------DIVISION OF NUMBERS
-const pirceNum = document.querySelectorAll('#priceNum')
-for( let pn=0; pn<pirceNum.length; pn++ ){
-    pirceNum[pn].innerText = funcNum(pirceNum[pn].innerText)
+const price = document.querySelectorAll('#priceNum')
+for( let pn=0; pn<price.length; pn++ ){
+    price[pn].innerText = funcNum(price[pn].innerText)
 }
 
 //----------------------------------------------------------------------AJAX ADD TO CART

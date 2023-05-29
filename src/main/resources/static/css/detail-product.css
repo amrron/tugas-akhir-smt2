@@ -66,6 +66,16 @@ main.detail-product .left .box-img p {
 }
 
 /*----------IMG DETAIL----------*/
+.swiper {
+	width: 100%;
+	height: 100%;
+}
+
+.swiper-slide {
+	display: flex;
+	justify-content: center;
+}
+
 main.detail-product .left .target-vw,
 main.detail-product .left .target-vw img {
 	transition: 0.3s;
@@ -110,7 +120,8 @@ main.detail-product .left .btnGroup i#detailCross {
 }
 
 main.detail-product .left .target-vw img {
-	height: calc(100% - 10%);
+	height: 100%;
+	display: block;
 }
 
 /*----------ADD CART----------*/
@@ -120,7 +131,7 @@ main.detail-product .right .box {
 }
 
 main.detail-product .right .this-head,
-main.detail-product .right .ac,
+main.detail-product .right form,
 main.detail-product .right .payment {
 	margin-bottom: 2rem;
 }
@@ -131,7 +142,7 @@ main.detail-product .right .this-head {
 	text-transform: capitalize;
 }
 
-main.detail-product .right .ac {
+main.detail-product .right form {
 	display: grid;
 	grid-template-columns: auto 1fr;
 	gap: 1rem;
@@ -149,13 +160,13 @@ main.detail-product .right .custom-number {
 	grid-area: 2 / 1 / 3 / 2;
 }
 
-main.detail-product .right .ac input,
+main.detail-product .right form input,
 main.detail-product .right .box-prev-next {
 	background-color: var(--white);
 	text-align: center;
 }
 
-main.detail-product .right .ac input {
+main.detail-product .right form input {
 	width: 40px;
 	height: 100%;
 	padding: 10px;
@@ -163,12 +174,12 @@ main.detail-product .right .ac input {
 	border-right: 0;
 }
 
-main.detail-product .right .ac input:focus {
+main.detail-product .right form input:focus {
 	outline: none;
 }
 
-main.detail-product .right .ac input::-webkit-inner-spin-button,
-main.detail-product .right .ac input::-webkit-outer-spin-button {
+main.detail-product .right form input::-webkit-inner-spin-button,
+main.detail-product .right form input::-webkit-outer-spin-button {
 	-webkit-appearance: none;
 	appearance: none;
 }
@@ -189,7 +200,7 @@ main.detail-product .right .box-prev-next i:first-child {
 	border-bottom: 1px solid var(--black01);
 }
 
-main.detail-product .right .ac button {
+main.detail-product .right form button {
 	max-width: 300px;
 	padding: 15px 20px;
 	font-size: 0.8rem;
@@ -250,6 +261,10 @@ main.detail-product .left .fb {
 	color: #3b5998;
 }
 
+main.detail-product .left .ig {
+	color: #c13584;
+}
+
 main.detail-product .left .tw {
 	color: #1da1f2;
 }
@@ -294,10 +309,10 @@ main.detail-product .descAndRev .head-reviews {
 main.detail-product .descAndRev form {
 	display: grid;
 	grid-template-areas:
-		"stars stars"
-		"mess mess"
-		"name email"
-		"btn-rev btn-rev";
+    "stars stars"
+    "mess mess"
+    "name email"
+    "btn-rev btn-rev";
 	gap: 1rem;
 }
 

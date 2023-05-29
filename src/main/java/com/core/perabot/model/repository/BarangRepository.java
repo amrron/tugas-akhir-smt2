@@ -15,4 +15,7 @@ public interface BarangRepository extends JpaRepository <Barang, Long> {
 
     @Query("SELECT COUNT(b) FROM Barang b WHERE b.id_kategori = :id AND b.stok = true")
     Long countByCategoryAndStockTrue(String id);
+
+    @Query("SELECT b FROM Barang b WHERE b.id_barang = :idbarang")
+    Barang findById_barang(Integer idbarang);
 }

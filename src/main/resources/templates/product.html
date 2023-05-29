@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Didol.shop</title>
+
+  <!-- ICON HEAD -->
+  <link rel="icon" href="/image/icon/logo.svg">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/component.css">
+  <link rel="stylesheet" href="/css/detail-product.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+  <link rel="stylesheet" href="/css/swiper-bundle.min.css">
+
+  <!-- FONT AWESOME -->
+  <link rel="stylesheet" href="/font/fontawesome/css/all.css">
+
+  <!-- FONT GOOGLE -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Josefin+Sans:100,200,300,400,500,600,700,800,900|Montserrat:100,200,300,400,500,600,700,800,900">
+
+
+</head>
+<body>
+
+<div th:replace="~{components/navbar.html :: navbar}"></div>
+
+<main class="detail-product">
+  <div class="section" id="">
+    <div class="box-add-cart">
+      <div class="left">
+        <div class="current-page">
+          <p>
+            <a href="">home</a> /
+            <a href="" th:text="${barang.id_kategori}"></a>/
+            <span class="this-page" th:text="${barang.nama_barang}"></span>
+          </p>
+        </div>
+        <div class="target-vw" id="imgVW">
+          <div class="btnGroup not-close" id="btnGroup">
+            <i class="fas fa-expand cursor-pointer-custom not-close" id="btnFullScreen"></i>
+            <i class="fas fa-link cursor-pointer-custom not-close"></i>
+            <i class="fas fa-times cursor-pointer-custom not-close" id="detailCross"></i>
+          </div>
+          <div class="swiper swiper-box-img">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img src="../assets/image/product/sofa/sofa-D0001.jpg" id="imgShow"
+                     class="not-close">
+              </div>
+              <div class="swiper-slide">
+                <img src="../assets/image/product/sofa/sofa-D0001.jpg" id="imgShow"
+                     class="not-close">
+              </div>
+              <div class="swiper-slide">
+                <img src="../assets/image/product/sofa/sofa-D0001.jpg" id="imgShow"
+                     class="not-close">
+              </div>
+              <div class="swiper-slide">
+                <img src="../assets/image/product/sofa/sofa-D0001.jpg" id="imgShow"
+                     class="not-close">
+              </div>
+            </div>
+
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+        <div class="box-img" id="img-rl">
+          <div class="img not-close"
+               th:style="'background-image: url(' + ${barang.gambar_url} + ');'"></div>
+          <p class="cursor-pointer-custom not-close" id="detail-btnShow">lihat</p>
+        </div>
+        <div class="share">
+          <a href=""> <i class="fab fa-facebook-f fb"></i> </a>
+          <a href=""> <i class="fab fa-instagram ig"></i> </a>
+          <a href=""> <i class="fab fa-twitter tw"></i> </a>
+          <a href=""> <i class="fab fa-whatsapp wa"></i> </a>
+          <a href=""> <i class="fas fa-link lnk"></i> </a>
+        </div>
+      </div>
+      <div class="right">
+        <div class="box" id="box">
+
+          <p class="this-head montserrat" th:text="${barang.nama_barang}" ></p>
+          <form>
+            <p class="price" id="priceNum" th:text="${'Rp. ' + barang.harga}"></p>
+            <div class="custom-number">
+              <input type="number" name="" class="josefin" id="custom-number" min="1" max="20">
+              <div class="box-prev-next">
+                <i class="fas fa-plus" id="plus"></i>
+                <i class="fas fa-minus" id="min"></i>
+              </div>
+            </div>
+            <button type="submit" class="montserrat cursor-pointer-custom">tambah ke keranjang</button>
+          </form>
+          <div class="payment">
+            <i class="fab fa-cc-visa"></i>
+            <i class="fab fa-cc-mastercard"></i>
+            <i class="fab fa-cc-paypal"></i>
+          </div>
+          <div class="methods">
+            <div class="method">
+              <i class="fas fa-gifts"></i>
+              <p>termasuk hadiah gratis</p>
+            </div>
+            <div class="method">
+              <i class="fas fa-shield-alt"></i>
+              <p>pembayaran yang aman</p>
+            </div>
+            <div class="method">
+              <i class="fas fa-shipping-fast"></i>
+              <p>pengiriman seluruh dunia</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section descAndRev" id="">
+    <div class="deskripsi">
+      <p class="judul montserrat">Deskripsi</p>
+      <span class="content" th:text="${barang.deskripsi}"></span>
+    </div>
+    <div class="reviews">
+      <p class="head-reviews montserrat">Ulasan</p>
+      <div class="rating">
+        <form>
+          <div class="stars box-IR">
+            <label for="">Penilaianmu <span class="required">*</span></label>
+            <div class="box-stars">
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+          </div>
+          <div class="message box-IR">
+            <label for="message">Pesan <span class="required">*</span></label>
+            <textarea class="josefin" type="text" name="" id="message" rows="6"></textarea>
+          </div>
+          <div class="name box-IR">
+            <label for="name">Nama <span class="required">*</span></label>
+            <input class="josefin" type="text" name="" id="name" autocomplete="off">
+          </div>
+          <div class="email box-IR">
+            <label for="email">Email <span class="required">*</span></label>
+            <input class="josefin" type="text" name="" id="email" autocomplete="off">
+          </div>
+          <div class="button">
+            <button type="submit" class="josefin">kirim</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="">
+  </div>
+</main>
+
+
+<div class="box-popup" id="box-popup"></div>
+
+<div th:replace="~{components/footer.html :: footer}"></div>
+
+<script src="/js/swiperjs/swiper-bundle.min.js"></script>
+<script src="/js/typed/typed.js"></script>
+<script src="/js/core/script.js"></script>
+<script src="/js/core/index.js"></script>
+<script src="/js/core/detail-product.js"></script>
+</body>
+</html>
