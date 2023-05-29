@@ -25,7 +25,7 @@ public class HomeController {
 
     @GetMapping("/")
     public String index(Model model){
-//        List<Pembeli> users = userRepository.findAll();
+//        List<Pembeli> users = userRepository.findByNamaPembeli("Eky");
 //
 //        model.addAttribute("data1", users);
         return "home";
