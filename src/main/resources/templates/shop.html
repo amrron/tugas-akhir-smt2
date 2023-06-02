@@ -18,7 +18,8 @@
     <link rel="stylesheet" href="/css/nouislider.min.css">
 
     <!-- FONT AWESOME -->
-    <link rel="stylesheet" href="/font/fontawesome/css/all.css">
+<!--    <link rel="stylesheet" href="/font/fontawesome/css/all.css">-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- FONT GOOGLE -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,7 +30,8 @@
 </head>
 <body>
 
-<!--<div th:text="${query}"></div>-->
+<div th:text="${tes}">
+</div>
 
 <div th:replace="~{components/navbar.html :: navbar}"></div>
 
@@ -56,7 +58,7 @@
                 <ul>
                     <!--Category-->
                     <li th:each="kategori,iterKategori : ${datakategori}">
-                        <a id="filterCategory" th:text="${kategori.nama_kategori}"></a> &nbsp;
+                        <a id="filterCategory" th:text="${kategori.nama_kategori}" th:data-idbarang="${kategori.id_kategori}"></a> &nbsp;
                         <span class="total" th:text="'(' + ${productCounts[iterKategori.index]} + ')'">&nbsp</span>
                     </li>
                 </ul>
@@ -91,21 +93,24 @@
             </div>
         </div>
 
-        <div class="content-shop <?php if ($dataProduct == NULL) echo 'content-shop-1r'; ?>">
-            <!--Jika data kosong-->
-<!--            <div class="box-animNoResult">-->
-<!--                <div id="animNoResult" data-lnkAnim="/js/animated/noResult.json"></div>-->
-<!--                <p>-->
-<!--                    <span class="text">tidak ada hasil</span>-->
-<!--                    <span id="valNoResult"></span>-->
-<!--                </p>-->
-<!--            </div>-->
+        <div class="content-shop" th:classappend="${databarang.isEmpty() && filterEmpty} ? 'content-shop-1r' : ''">
 
-            <div class="box-product" id="box-product" th:each="d : ${databarang}">
+            <div th:if="${databarang.isEmpty() && filterEmpty}" class="box-animNoResult">
+                <div id="animNoResult" data-lnkAnim="/js/animated/noResult.json"></div>
+                <p>
+                    <span class="text">tidak ada hasil</span>
+                    <span id="valNoResult"></span>
+                </p>
+            </div>
+
+            <div th:unless="${databarang.isEmpty() && filterEmpty}" class="box-product" id="box-product" th:each="d : ${databarang}">
                 <div class="sell-box-bg">
                     <a th:href="@{'/detail-product/'+${d.id_barang}}">
                         <img th:src="${d.gambar_url}" class="bg">
                     </a>
+                    <div class="to-cart">
+                        <button type="submit" class="cursor-pointer-custom josefin">tambah ke keranjang</button>
+                    </div>
                     <div id="boxLoading" class="boxLoading-hide">
                         <div class="productSpinner">
                             <span></span>
@@ -116,6 +121,7 @@
                     </div>
                 </div>
                 <div class="text" id="textP" data-P="0|1" data-ctg="kategori">
+                    <p class="sellCategory" th:text="${d.id_kategori.nama_kategori}"></p>
                     <div id="sellName" th:text="${d.nama_barang}"></div>
                     <div class="btb">
                         <p class="sellPrice">Rp <span id="priceNum" th:text="${d.harga}"></span></p>
@@ -125,12 +131,14 @@
             </div>
 
         </div>
+
     </div>
 </main>
 
 <div th:replace="~{components/footer.html :: footer}"></div>
 
 <script src="/js/core/script.js"></script>
+<script src="/js/animated/lottie.js"></script>
 <script src="/js/range/nouislider.min.js"></script>
 <script src="/js/core/shop.js"></script>
 </body>
