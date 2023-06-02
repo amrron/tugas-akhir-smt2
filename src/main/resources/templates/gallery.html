@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Didol.shop</title>
+
+  <!-- ICON HEAD -->
+  <link rel="icon" href="/image/icon/perabot.svg">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/shop.css">
+  <link rel="stylesheet" href="/css/component.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+  <link rel="stylesheet" href="/css/nouislider.min.css">
+
+  <!-- FONT AWESOME -->
+  <!--    <link rel="stylesheet" href="/font/fontawesome/css/all.css">-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- FONT GOOGLE -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Josefin+Sans:100,200,300,400,500,600,700,800,900|Montserrat:100,200,300,400,500,600,700,800,900">
+
+
+</head>
+<body>
+
+</div>
+
+<div th:replace="~{components/navbar.html :: navbar}"></div>
+
+<main class="shop">
+  <div class="current-page">
+    <p> <a href="index.html">home</a> <span class="this-page">/ galeri</span></p>
+  </div>
+  <div class="header-shop section-shop">
+    <p class="judul montserrat">Galeri</p>
+  </div>
+  <div class="content section-shop">
+    <div class="filter-shop" id="filter-shop">
+
+
+      <div id="btn-filter" class="cursor-pointer-custom">
+        <i class="fas fa-cog"></i>
+        <span>FILTER</span>
+      </div>
+    </div>
+
+    <div class="content-shop">
+      <div class="box-product" th:each="b : ${barang}">
+        <form>
+          <div class="sell-box-bg">
+            <a th:href="${'/detail-product/' + b.id_barang}">
+              <img th:src="${b.gambar_url}" class="bg">
+            </a>
+          </div>
+
+          <input type="hidden" name="fileName" value="fileName">
+          <input type="hidden" name="category" value="category">
+          <input type="hidden" name="productName" value="productName">
+          <input type="hidden" name="tipe" value="tipe">
+          <input type="hidden" name="price" value="price">
+        </form>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div th:replace="~{components/footer.html :: footer}"></div>
+
+<script src="/js/core/script.js"></script>
+<script src="/js/animated/lottie.js"></script>
+<script src="/js/range/nouislider.min.js"></script>
+<script src="/js/core/shop.js"></script>
+</body>
+</html>

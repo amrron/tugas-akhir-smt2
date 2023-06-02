@@ -119,7 +119,7 @@ VALUES
         'TRUE'
     ),
     (
-        'SFA',
+        'KRS',
         '1',
         'Sofa Camelback',
         'SOFA CAMELBACK
@@ -146,7 +146,7 @@ VALUES
         'TRUE'
     ),
     (
-        'SFA',
+        'KRS',
         '1',
         'Sofa Bed',
         'SOFA BED
@@ -170,7 +170,7 @@ VALUES
         'TRUE'
     ),
     (
-        'SFA',
+        'KRS',
         '1',
         'Sofa Chesterfield',
         'SOFA CHESTERFIELD
@@ -282,7 +282,7 @@ VALUES
         'TRUE'
     ),
     (
-        'KSR',
+        'TDR',
         '1',
         'Kasur Busa',
         'Spesifikasi kasur busa (foam mattress) untuk ukuran single bed (ukuran satu orang) dan double bed (ukuran dua orang) dapat bervariasi tergantung pada merek dan produsen. Namun, berikut adalah beberapa spesifikasi umum yang dapat Anda pertimbangkan:
@@ -312,7 +312,7 @@ VALUES
         'TRUE'
     ),
     (
-        'SPR',
+        'TDR',
         '1',
         'Spring Bed Dorong',
         'Kasur twin bed tingkat dorong adalah jenis kasur yang memiliki dua tempat tidur berukuran twin (ukuran kasur tunggal) yang disusun secara vertikal, dengan kasur yang berada di atasnya dapat digeser atau didorong untuk mengakses kasur yang berada di bawahnya. Meskipun saya tidak memiliki informasi terkini tentang produk-produk spesifik yang tersedia di pasar saat ini, berikut adalah spesifikasi kasur twin bed tingkat dorong:
@@ -336,7 +336,7 @@ VALUES
         'TRUE'
     ),
     (
-        'BTL',
+        'TDR',
         '1',
         'Bantal Busa',
         'Berikut adalah spesifikasi bantal busa:
@@ -695,7 +695,7 @@ VALUES
         'TRUE'
     ),
     (
-        'SPR',
+        'TDR',
         '2',
         'Springbed set',
         '"Spesifikasi set kasur springbed :
@@ -722,7 +722,7 @@ VALUES
         'TRUE'
     ),
     (
-        'SPR',
+        'TDR',
         '2',
         'Matras',
         '"Spesifikasi matras :
@@ -762,7 +762,7 @@ VALUES
         'TRUE'
     ),
     (
-        'KSR',
+        'TDR',
         '2',
         'Kasur Kapuk atau Kapas',
         '"Kasur kapuk ukuran tunggal, adalah kasur dengan ukuran yang sesuai untuk satu orang. Berikut adalah beberapa spesifikasi umum yang dapat ditemukan pada kasur kapuk single bed:
@@ -786,7 +786,7 @@ VALUES
         'TRUE'
     ),
     (
-        'KSR',
+        'TDR',
         '2',
         'Kasur Santai',
         '"Kasur santai, juga dikenal sebagai kasur lipat atau kasur tatami, adalah perabotan yang nyaman untuk bersantai, beristirahat, atau tidur. Berikut adalah spesifikasi kasur santai:
@@ -812,7 +812,7 @@ VALUES
         'TRUE'
     ),
     (
-        'BTL',
+        'TDR',
         '2',
         'Bantal Kapuk atau Kapas',
         '"Berikut adalah spesifikasi bantal kapuk atau kapas:

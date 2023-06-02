@@ -5,6 +5,9 @@ import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Data
 @Table(name = "kategori")
 @Entity
@@ -31,5 +34,6 @@ public class Kategori {
     @UpdateTimestamp
     @Column (name = "terakhir_diperbarui")
     private String terakhir_diperbarui;
+
 }
 

@@ -8,7 +8,7 @@
   <title>Didol.shop</title>
 
   <!-- ICON HEAD -->
-  <link rel="icon" href="/image/icon/logo.svg">
+  <link rel="icon" href="/image/icon/perabot.svg">
 
   <!-- CSS -->
   <link rel="stylesheet" href="/css/style.css">
@@ -35,8 +35,8 @@
       <div class="left">
         <div class="current-page">
           <p>
-            <a href="">home</a> /
-            <a href="" th:text="${barang.id_kategori}"></a>/
+            <a href="/">home</a> /
+            <a th:href="${'/shop?ctg=' + barang.id_kategori.id_kategori}" th:text="${barang.id_kategori.nama_kategori}"></a> /
             <span class="this-page" th:text="${barang.nama_barang}"></span>
           </p>
         </div>
@@ -97,25 +97,6 @@
             </div>
             <button type="submit" class="montserrat cursor-pointer-custom">tambah ke keranjang</button>
           </form>
-          <div class="payment">
-            <i class="fab fa-cc-visa"></i>
-            <i class="fab fa-cc-mastercard"></i>
-            <i class="fab fa-cc-paypal"></i>
-          </div>
-          <div class="methods">
-            <div class="method">
-              <i class="fas fa-gifts"></i>
-              <p>termasuk hadiah gratis</p>
-            </div>
-            <div class="method">
-              <i class="fas fa-shield-alt"></i>
-              <p>pembayaran yang aman</p>
-            </div>
-            <div class="method">
-              <i class="fas fa-shipping-fast"></i>
-              <p>pengiriman seluruh dunia</p>
-            </div>
-          </div>
 
         </div>
       </div>

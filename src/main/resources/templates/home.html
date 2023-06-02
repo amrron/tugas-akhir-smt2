@@ -8,7 +8,7 @@
     <title>Didol.shop</title>
 
     <!-- ICON HEAD -->
-    <link rel="icon" href="/image/icon/logo.svg">
+    <link rel="icon" href="/image/icon/perabot.svg">
 
     <!-- CSS -->
     <link rel="stylesheet" href="/css/style.css">
@@ -32,7 +32,7 @@
 <main class="index">
     <div class="jumbotron" id="jumbotron">
         <div class="box-text">
-            <h1 class="montserrat">didol.shop</h1>
+            <h1 class="montserrat">Perabot.shop</h1>
             <div class="box-typed">
                 <p class="montserrat">indonesian <span id="my-typing"></span></p>
             </div>
@@ -48,59 +48,10 @@
         <div class="category section" id="category">
             <p class="judul montserrat">kategori</p>
             <div class="content-category">
-                <a href="">
+                <a th:href="${'/shop?ctg=' + k.id_kategori}" th:each="k : ${kategori}">
                     <div>
-                        <img src="/image/category/meja.png" alt="">
-                        <p>Meja <span class="total">(0)</span></p>
-                    </div>
-                </a>
-
-                <a href="">
-                    <div>
-                        <img src="/image/category/sofa.png" alt="">
-                        <p>Sofa <span class="total">(0)</span></p>
-                    </div>
-                </a>
-
-                <a href="">
-                    <div>
-                        <img src="/image/category/kasur.png" alt="">
-                        <p>Kasur <span class="total">(0)</span></p>
-                    </div>
-                </a>
-
-                <a href="">
-                    <div>
-                        <img src="/image/category/kursi.png" alt="">
-                        <p>Kursi <span class="total">(0)</span></p>
-                    </div>
-                </a>
-
-                <a href="">
-                    <div>
-                        <img src="/image/category/tanaman.png" alt="">
-                        <p>Tanaman hias <span class="total">(0)</span></p>
-                    </div>
-                </a>
-
-                <a href="">
-                    <div>
-                        <img src="/image/category/lampu.png" alt="">
-                        <p>Lampu <span class="total">(0)</span></p>
-                    </div>
-                </a>
-
-                <a href="">
-                    <div>
-                        <img src="/image/category/lemari.png" alt="">
-                        <p>Lemari <span class="total">(0)</span></p>
-                    </div>
-                </a>
-
-                <a href="">
-                    <div>
-                        <img src="/image/category/cermin.png" alt="">
-                        <p>Cermin <span class="total">(0)</span></p>
+                        <img th:src="${k.gambar_url}" alt="">
+                        <p th:text="${k.nama_kategori}"></span></p>
                     </div>
                 </a>
             </div>
@@ -325,7 +276,7 @@
                     <div class="text" id="dua">
                         <p>pendatang baru</p>
                         <p>Tebaru dari toko kami</p>
-                        <p>Furniture Didol.shop telah menjadi pusat perhatian di indonesia. Terutama di kenaikan presentase penjualan menaik drastis pada tahun 2021. Sekarang furniture terbaik di indonesia tiba langsung ke rumah anda. Temukan produk terbaik kami. Masuk ke toko online kami dan beli produk terbaik</p>
+                        <p>Furniture Perabot.shop telah menjadi pusat perhatian di indonesia. Terutama di kenaikan presentase penjualan menaik drastis pada tahun 2021. Sekarang furniture terbaik di indonesia tiba langsung ke rumah anda. Temukan produk terbaik kami. Masuk ke toko online kami dan beli produk terbaik</p>
                         <a href="">lihat</a>
                     </div>
                 </div>

@@ -50,4 +50,3 @@ public class Barang {
     @Column(name = "terjual")
     private Integer terjual;
 }
-

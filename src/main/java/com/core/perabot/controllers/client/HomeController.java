@@ -5,15 +5,25 @@ package com.core.perabot.controllers.client;
 //import com.core.perabot.services.ImageService;
 //import org.springframework.http.HttpStatus;
 //import org.springframework.http.ResponseEntity;
+import com.core.perabot.model.models.Kategori;
+import com.core.perabot.model.repository.KategoriRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 //import org.springframework.web.multipart.MultipartFile;
 //
 //import java.util.List;
 
 @Controller
 public class HomeController {
+
+    private final KategoriRepository kategoriRepository;
+
+    public HomeController(KategoriRepository kategoriRepository) {
+        this.kategoriRepository = kategoriRepository;
+    }
 
 //    private final UserRepository userRepository;
 //    private final ImageService imageService;
@@ -26,8 +36,11 @@ public class HomeController {
     @GetMapping("/")
     public String index(Model model){
 //        List<Pembeli> users = userRepository.findByNamaPembeli("Eky");
+
+        List<Kategori> kategori = kategoriRepository.findAll();
 //
 //        model.addAttribute("data1", users);
+        model.addAttribute("kategori", kategori);
         return "home";
     }
 
