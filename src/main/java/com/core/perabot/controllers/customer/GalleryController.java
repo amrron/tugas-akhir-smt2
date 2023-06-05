@@ -21,6 +21,6 @@ public class GalleryController {
     public String index(Model model){
         List<Barang> barang = barangRepository.getAll();
         model.addAttribute("barang", barang);
-        return "gallery";
+        return "customer/gallery";
     }
 }

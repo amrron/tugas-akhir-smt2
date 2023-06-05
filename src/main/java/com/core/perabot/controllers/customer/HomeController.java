@@ -5,8 +5,12 @@ package com.core.perabot.controllers.client;
 //import com.core.perabot.services.ImageService;
 //import org.springframework.http.HttpStatus;
 //import org.springframework.http.ResponseEntity;
+import com.core.perabot.model.models.Barang;
 import com.core.perabot.model.models.Kategori;
+import com.core.perabot.model.repository.BarangRepository;
 import com.core.perabot.model.repository.KategoriRepository;
+import com.core.perabot.model.repository.KeranjangRepository;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -20,9 +24,11 @@ import java.util.List;
 public class HomeController {
 
     private final KategoriRepository kategoriRepository;
+    private final BarangRepository barangRepository;
 
-    public HomeController(KategoriRepository kategoriRepository) {
+    public HomeController(KategoriRepository kategoriRepository, BarangRepository barangRepository) {
         this.kategoriRepository = kategoriRepository;
+        this.barangRepository = barangRepository;
     }
 
 //    private final UserRepository userRepository;
@@ -34,14 +40,17 @@ public class HomeController {
 //    }
 
     @GetMapping("/")
-    public String index(Model model){
+    public String index(Model model, HttpSession session){
 //        List<Pembeli> users = userRepository.findByNamaPembeli("Eky");
 
         List<Kategori> kategori = kategoriRepository.findAll();
+        List<Barang> terlaris = barangRepository.getTerlaris();
+
 //
 //        model.addAttribute("data1", users);
         model.addAttribute("kategori", kategori);
-        return "home";
+        model.addAttribute("terlaris", terlaris);
+        return "customer/home";
     }
 
 //    @PostMapping("/upload")

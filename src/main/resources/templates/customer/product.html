@@ -5,20 +5,20 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Didol.shop</title>
+  <title>Perabot.shop</title>
 
   <!-- ICON HEAD -->
   <link rel="icon" href="/image/icon/perabot.svg">
 
   <!-- CSS -->
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="/css/component.css">
-  <link rel="stylesheet" href="/css/detail-product.css">
-  <link rel="stylesheet" href="/css/responsive.css">
-  <link rel="stylesheet" href="/css/swiper-bundle.min.css">
+  <link rel="stylesheet" href="/customer/css/style.css">
+  <link rel="stylesheet" href="/customer/css/component.css">
+  <link rel="stylesheet" href="/customer/css/detail-product.css">
+  <link rel="stylesheet" href="/customer/css/responsive.css">
+  <link rel="stylesheet" href="/customer/css/swiper-bundle.min.css">
 
   <!-- FONT AWESOME -->
-  <link rel="stylesheet" href="/font/fontawesome/css/all.css">
+  <link rel="stylesheet" href="/customer/font/fontawesome/css/all.css">
 
   <!-- FONT GOOGLE -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Josefin+Sans:100,200,300,400,500,600,700,800,900|Montserrat:100,200,300,400,500,600,700,800,900">
@@ -27,7 +27,7 @@
 </head>
 <body>
 
-<div th:replace="~{components/navbar.html :: navbar}"></div>
+<div th:replace="~{customer/components/navbar.html :: navbar}"></div>
 
 <main class="detail-product">
   <div class="section" id="">
@@ -35,7 +35,7 @@
       <div class="left">
         <div class="current-page">
           <p>
-            <a href="/">home</a> /
+            <a href="/static">home</a> /
             <a th:href="${'/shop?ctg=' + barang.id_kategori.id_kategori}" th:text="${barang.id_kategori.nama_kategori}"></a> /
             <span class="this-page" th:text="${barang.nama_barang}"></span>
           </p>
@@ -48,22 +48,7 @@
           </div>
           <div class="swiper swiper-box-img">
             <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <img src="../assets/image/product/sofa/sofa-D0001.jpg" id="imgShow"
-                     class="not-close">
-              </div>
-              <div class="swiper-slide">
-                <img src="../assets/image/product/sofa/sofa-D0001.jpg" id="imgShow"
-                     class="not-close">
-              </div>
-              <div class="swiper-slide">
-                <img src="../assets/image/product/sofa/sofa-D0001.jpg" id="imgShow"
-                     class="not-close">
-              </div>
-              <div class="swiper-slide">
-                <img src="../assets/image/product/sofa/sofa-D0001.jpg" id="imgShow"
-                     class="not-close">
-              </div>
+
             </div>
 
             <div class="swiper-pagination"></div>
@@ -86,10 +71,11 @@
         <div class="box" id="box">
 
           <p class="this-head montserrat" th:text="${barang.nama_barang}" ></p>
-          <form>
-            <p class="price" id="priceNum" th:text="${'Rp. ' + barang.harga}"></p>
+          <form role="form" method="post" th:action="@{/shop/addcart}" th:object="${keranjang}">
+            <p class="price">Rp. <span id="priceNum" th:text="${barang.harga}"></span></p>
             <div class="custom-number">
-              <input type="number" name="" class="josefin" id="custom-number" min="1" max="20">
+              <input type="hidden" name="id_barang" th:value="${barang.id_barang}">
+              <input type="number" name="jumlah" th:field="*{jumlah}" class="josefin" id="custom-number" min="1" max="20">
               <div class="box-prev-next">
                 <i class="fas fa-plus" id="plus"></i>
                 <i class="fas fa-minus" id="min"></i>
@@ -149,12 +135,11 @@
 
 <div class="box-popup" id="box-popup"></div>
 
-<div th:replace="~{components/footer.html :: footer}"></div>
+<div th:replace="~{customer/components/footer.html :: footer}"></div>
 
-<script src="/js/swiperjs/swiper-bundle.min.js"></script>
-<script src="/js/typed/typed.js"></script>
-<script src="/js/core/script.js"></script>
-<script src="/js/core/index.js"></script>
-<script src="/js/core/detail-product.js"></script>
+<script src="/customer/js/swiperjs/swiper-bundle.min.js"></script>
+<script src="/customer/js/core/script.js"></script>
+<script src="/customer/js/core/index.js"></script>
+<script src="/customer/js/core/detail-product.js"></script>
 </body>
 </html>

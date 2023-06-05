@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Perabot.shop</title>
+
+  <!-- ICON HEAD -->
+  <link rel="icon" href="/image/icon/perabot.svg">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/customer/css/style.css">
+  <link rel="stylesheet" href="/customer/css/component.css">
+  <link rel="stylesheet" href="/customer/css/cart.css">
+  <link rel="stylesheet" href="/customer/css/responsive.css">
+  <link rel="stylesheet" href="/customer/css/swiper-bundle.min.css">
+
+  <!-- FONT AWESOME -->
+  <link rel="stylesheet" href="/customer/font/fontawesome/css/all.css">
+
+  <!-- FONT GOOGLE -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Josefin+Sans:100,200,300,400,500,600,700,800,900|Montserrat:100,200,300,400,500,600,700,800,900">
+
+
+</head>
+<body>
+
+<div th:replace="~{customer/components/navbar.html :: navbar}"></div>
+
+<main class="cart">
+  <div class="header">
+    <img src="/customer/image/bg/bg-cart.jpg">
+    <div class="text">
+      <p class="montserrat">Keranjang</p>
+    </div>
+  </div>
+
+  <div class="ifNotContent" style="display: none;">
+    <div id="anim-no-product"></div>
+    <div class="text">
+      <p class="text-no-produk">tidak ada produk</p>
+      <a href="">belanja</a>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="top">
+      <div class="myTable">
+
+
+          <table>
+            <tr class="head-table">
+              <td></td>
+              <td></td>
+              <td class="productName">produk</td>
+              <td>harga</td>
+              <td>kuantitas</td>
+              <td>subtotal</td>
+              <td>update</td>
+            </tr>
+
+            <tr class="product" th:each="k : ${barangdikeranjang}">
+
+              <td class="cross">
+                <form role="form" method="post" th:action="@{/cart/delete}" th:object="${keranjang}">
+                  <input type="hidden" name="id_keranjang" th:value="${k.id_keranjang}">
+                  <button id="lnk-chck" type="submit" style="border: none; background-color: transparent"><i class="fas fa-times cursor-pointer-custom"></i></button>
+                </form>
+              </td>
+              <form role="form" method="post" th:action="@{/cart/update}" th:object="${keranjang}">
+                <input type="hidden" name="id_keranjang" th:value="${k.id_keranjang}"/>
+                <input type="hidden" name="id_barang" th:value="${k.id_barang.id_barang}" />
+              <td class="img-tbl">
+                <a href="">
+                  <img th:src="${k.id_barang.gambar_url}">
+                </a>
+              </td>
+              <td class="productName">
+                <span class="mobile head-table">produk</span>
+                <span th:text="${k.id_barang.nama_barang}"></span>
+              </td>
+              <td>
+                <span class="mobile head-table">harga</span>
+                <span class="price" th:text="${k.id_barang.harga}"></span>
+              </td>
+              <td>
+                <span class="mobile head-table">kuantitas</span>
+                <div class="custom-number">
+                  <input type="number" class="josefin" name="jumlah" th:value="${k.jumlah}" id="custom-number" min="1"
+                         max="20">
+                  <div class="box-prev-next">
+                    <i class="fas fa-plus" id="plus"></i>
+                    <i class="fas fa-minus" id="min"></i>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <span class="mobile head-table">subtotal</span>
+                <span class="price" th:text="${k.sub_total}"></span>
+              </td>
+              <td>
+                <button type="submit" id="update-cart" class="josefin cursor-pointer-custom btn-disabled" style="padding: 7px; border: none">Update</button>
+              </td>
+              </form>
+            </tr>
+          </table>
+
+
+      </div>
+<!--      <div class="update-cart">-->
+<!--        <button id="update-cart" class="josefin cursor-pointer-custom btn-disabled">perbarui-->
+<!--          keranjang</button>-->
+<!--      </div>-->
+    </div> <!-- END TOP -->
+
+    <div class="bottom">
+
+      <div class="box-right">
+        <p class="head-lnk-checkout">total harga</p>
+        <div class="box head">
+          <div class="box-text">
+            <p>total</p>
+            <span class="price" th:text="${total}"></span>
+          </div>
+        </div>
+        <a href="/cart/checkout" class="link-checkout">checkout</a>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<div class="box-popup" id="box-popup"></div>
+
+<div th:replace="~{customer/components/footer.html :: footer}"></div>
+
+<script src="/customer/js/animated/lottie.js"></script>
+<script src="/customer/js/core/script.js"></script>
+<script src="/customer/js/core/cart.js"></script>
+</body>
+</html>

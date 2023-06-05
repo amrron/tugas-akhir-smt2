@@ -1,6 +1,7 @@
 package com.core.perabot.controllers.client;
 
 import com.core.perabot.model.models.Barang;
+import com.core.perabot.model.models.Keranjang;
 import com.core.perabot.model.repository.BarangRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,7 +22,9 @@ public class ProductController {
     @GetMapping("/detail-product/{id}")
     public String index(Model model, @PathVariable("id") String id) {
         Barang barang = barangRepository.findById_barang(Integer.valueOf(id));
+        Keranjang keranjang = new Keranjang();
+        model.addAttribute("keranjang", keranjang);
         model.addAttribute("barang", barang);
-        return "product";
+        return "customer/product";
     }
 }

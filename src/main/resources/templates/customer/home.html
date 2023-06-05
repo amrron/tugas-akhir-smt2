@@ -5,16 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Didol.shop</title>
+    <title>Perabot.shop</title>
 
     <!-- ICON HEAD -->
     <link rel="icon" href="/image/icon/perabot.svg">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/component.css">
-    <link rel="stylesheet" href="/css/responsive.css">
-    <link rel="stylesheet" href="/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/customer/css/style.css">
+    <link rel="stylesheet" href="/customer/css/component.css">
+    <link rel="stylesheet" href="/customer/css/responsive.css">
+    <link rel="stylesheet" href="/customer/css/swiper-bundle.min.css">
 
     <!-- FONT AWESOME -->
 <!--    <link rel="stylesheet" href="/font/fontawesome/css/all.css">-->
@@ -27,7 +27,7 @@
 </head>
 <body>
 
-<div th:replace="~{components/navbar.html :: navbar}"></div>
+<div th:replace="~{customer/components/navbar.html :: navbar}"></div>
 
 <main class="index">
     <div class="jumbotron" id="jumbotron">
@@ -38,7 +38,7 @@
             </div>
             <div class="J-btn">
                 <a href="/shop">Belanja</a>
-                <a href="">Produk terlaris</a>
+                <a href="/shop">Produk terlaris</a>
             </div>
         </div>
     </div>
@@ -62,21 +62,20 @@
 
             <div class="swiper">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide">
+                    <div class="swiper-slide" th:each="b : ${terlaris}">
                         <form>
                             <div id="number">#1</div>
                             <div class="sell-box-bg">
-                                <a href="">
-                                    <img src="/image/product/sofa/sofa-D0005.jpg" class="bg" alt="">
+                                <a th:href="${'/detail-product/' + b.id_barang}">
+                                    <img th:src="${b.gambar_url}" class="bg" alt="">
                                 </a>
                                 <div class="to-cart">
                                     <button type="submit" class="cursor-pointer-custom josefin">tambah ke keranjang</button>
                                 </div>
                             </div>
                             <div class="text">
-                                <p class="sellCategory">Sofa</p>
-                                <p><span class="sellProduct">Sofa</span> tipe <span class="tipe">(D0005)</span></p>
-                                <p>Rp 0</p>
+                                <p><span class="sellProduct" th:text="${b.nama_barang}"></span></p>
+                                <p><span th:text="${b.harga}" id="priceNum"></span></p>
                             </div>
 
                             <input type="hidden" name="fileName" value="fileName">
@@ -86,126 +85,7 @@
                             <input type="hidden" name="price" value="price">
                         </form>
                     </div>
-                    <div class="swiper-slide">
-                        <form>
-                            <div id="number">#2</div>
-                            <div class="sell-box-bg">
-                                <a href="">
-                                    <img src="/image/product/lemari/lemari-D0002.jpg" class="bg" alt="">
-                                </a>
-                                <div class="to-cart">
-                                    <button type="submit" class="cursor-pointer-custom josefin">tambah ke keranjang</button>
-                                </div>
-                            </div>
-                            <div class="text">
-                                <p class="sellCategory">Lemari</p>
-                                <p><span class="sellProduct">Lemari</span> tipe <span class="tipe">(D0002)</span></p>
-                                <p>Rp 0</p>
-                            </div>
-                        </form>
 
-                        <input type="hidden" name="fileName" value="fileName">
-                        <input type="hidden" name="category" value="category">
-                        <input type="hidden" name="productName" value="productName">
-                        <input type="hidden" name="tipe" value="tipe">
-                        <input type="hidden" name="price" value="price">
-                    </div>
-                    <div class="swiper-slide">
-                        <form>
-                            <div id="number">#3</div>
-                            <div class="sell-box-bg">
-                                <a href="">
-                                    <img src="/image/product/meja/meja-D0005.jpg" alt="">
-                                </a>
-                                <div class="to-cart">
-                                    <button type="submit" class="cursor-pointer-custom josefin">tambah ke keranjang</button>
-                                </div>
-                            </div>
-                            <div class="text">
-                                <p class="sellCategory">Meja</p>
-                                <p><span class="sellProduct">Meja</span> tipe <span class="tipe">(D0005)</span></p>
-                                <p>Rp 0</p>
-                            </div>
-
-                            <input type="hidden" name="fileName" value="fileName">
-                            <input type="hidden" name="category" value="category">
-                            <input type="hidden" name="productName" value="productName">
-                            <input type="hidden" name="tipe" value="tipe">
-                            <input type="hidden" name="price" value="price">
-                        </form>
-                    </div>
-                    <div class="swiper-slide">
-                        <form>
-                            <div id="number">#4</div>
-                            <div class="sell-box-bg">
-                                <a href="">
-                                    <img src="/image/product/kursi/kursi-D0003.jpg" alt="">
-                                </a>
-                                <div class="to-cart">
-                                    <button type="submit" class="cursor-pointer-custom josefin">tambah ke keranjang</button>
-                                </div>
-                            </div>
-                            <div class="text">
-                                <p class="sellCategory">Kursi</p>
-                                <p><span class="sellProduct">Kursi</span> tipe <span class="tipe">(D0003)</span></p>
-                                <p>Rp 0</p>
-                            </div>
-
-                            <input type="hidden" name="fileName" value="fileName">
-                            <input type="hidden" name="category" value="category">
-                            <input type="hidden" name="productName" value="productName">
-                            <input type="hidden" name="tipe" value="tipe">
-                            <input type="hidden" name="price" value="price">
-                        </form>
-                    </div>
-                    <div class="swiper-slide">
-                        <form>
-                            <div id="number">#5</div>
-                            <div class="sell-box-bg">
-                                <a href="">
-                                    <img src="/image/product/tanaman/echeveria-D0001.jpg" alt="">
-                                </a>
-                                <div class="to-cart">
-                                    <button type="submit" class="cursor-pointer-custom josefin">tambah ke keranjang</button>
-                                </div>
-                            </div>
-                            <div class="text">
-                                <p class="sellCategory">Tanaman hias</p>
-                                <p><span class="sellProduct">Echeveria</span> tipe <span class="tipe">(D0001)</span></p>
-                                <p>Rp 0</p>
-                            </div>
-
-                            <input type="hidden" name="fileName" value="fileName">
-                            <input type="hidden" name="category" value="category">
-                            <input type="hidden" name="productName" value="productName">
-                            <input type="hidden" name="tipe" value="tipe">
-                            <input type="hidden" name="price" value="price">
-                        </form>
-                    </div>
-                    <div class="swiper-slide">
-                        <form>
-                            <div id="number">#6</div>
-                            <div class="sell-box-bg">
-                                <a href="">
-                                    <img src="/image/product/lampu/lampu-D0004.jpg" alt="">
-                                </a>
-                                <div class="to-cart">
-                                    <button type="submit" class="cursor-pointer-custom josefin">tambah ke keranjang</button>
-                                </div>
-                            </div>
-                            <div class="text">
-                                <p class="sellCategory">Lampu</p>
-                                <p><span class="sellProduct">Lampu</span> tipe <span class="tipe">(D0004)</span></p>
-                                <p>Rp 0</p>
-                            </div>
-
-                            <input type="hidden" name="fileName" value="fileName">
-                            <input type="hidden" name="category" value="category">
-                            <input type="hidden" name="productName" value="productName">
-                            <input type="hidden" name="tipe" value="tipe">
-                            <input type="hidden" name="price" value="price">
-                        </form>
-                    </div>
                 </div>
 
                 <div class="swiper-button-next swipe"></div>
@@ -232,31 +112,31 @@
         <div class="promo section">
             <div class="box-imgs">
                 <div class="satu box-img">
-                    <img src="/image/promo/promo1/satu.jpg" alt="">
+                    <img src="/customer/image/promo/promo1/satu.jpg" alt="">
                     <div class="text">
                         <p>produk baru telah tiba</p>
-                        <a href="">lihat</a>
+                        <a href="/shop">lihat</a>
                     </div>
                 </div>
                 <div class="dua box-img">
-                    <img src="/image/promo/promo1/dua.jpg" alt="">
+                    <img src="/customer/image/promo/promo1/dua.jpg" alt="">
                     <div class="text">
                         <p>produk kuat harga bersahabat</p>
-                        <a href="">lihat</a>
+                        <a href="/shop">lihat</a>
                     </div>
                 </div>
                 <div class="tiga box-img">
-                    <img src="/image/promo/promo1/tiga.jpg" alt="">
+                    <img src="/customer/image/promo/promo1/tiga.jpg" alt="">
                     <div class="text">
                         <p>kualitas tidak terbatas</p>
-                        <a href="">lihat</a>
+                        <a href="/shop">lihat</a>
                     </div>
                 </div>
                 <div class="empat box-img" id="who-are-we">
-                    <img src="/image/promo/promo1/empat.jpg" alt="">
+                    <img src="/customer/image/promo/promo1/empat.jpg" alt="">
                     <div class="text">
                         <p>buat harimu menyenangkan dengan produk luar biasa kami</p>
-                        <a href="">lihat</a>
+                        <a href="/shop">lihat</a>
                     </div>
                 </div>
             </div>
@@ -271,24 +151,24 @@
             <div class="content-promo2">
                 <div class="box-content">
                     <div class="box-img">
-                        <img src="/image/promo/promo2/satu.jpg" id="satu" alt="">
+                        <img src="/customer/image/promo/promo2/satu.jpg" id="satu" alt="">
                     </div>
                     <div class="text" id="dua">
                         <p>pendatang baru</p>
                         <p>Tebaru dari toko kami</p>
                         <p>Furniture Perabot.shop telah menjadi pusat perhatian di indonesia. Terutama di kenaikan presentase penjualan menaik drastis pada tahun 2021. Sekarang furniture terbaik di indonesia tiba langsung ke rumah anda. Temukan produk terbaik kami. Masuk ke toko online kami dan beli produk terbaik</p>
-                        <a href="">lihat</a>
+                        <a href="/shop">lihat</a>
                     </div>
                 </div>
                 <div class="box-content">
                     <div class="box-img">
-                        <img src="/image/promo/promo2/dua.jpg" id="satu" alt="">
+                        <img src="/customer/image/promo/promo2/dua.jpg" id="satu" alt="">
                     </div>
                     <div class="text" id="dua">
                         <p>pendatang baru</p>
                         <p>Terbaru dari produsen kami</p>
                         <p>Bebagai macam furniture memiliki keunikan sendiri karena memiliki bahan kayu. Didol.shop menggunakan kayu kualitas terbaik seperti kayu jati & kayu mahoni. Sudah dipastikan memiliki kualitas kuat, halus, dan tahan lama. Temukan produk terbaik kami. Masuk ke toko online kami dan beli produk terbaik</p>
-                        <a href="">lihat</a>
+                        <a href="/shop">lihat</a>
                     </div>
                 </div>
             </div>
@@ -299,11 +179,11 @@
 
 <div class="box-popup" id="box-popup"></div>
 
-<div th:replace="~{components/footer.html :: footer}"></div>
+<div th:replace="~{customer/components/footer.html :: footer}"></div>
 
-<script src="/js/swiperjs/swiper-bundle.min.js"></script>
-<script src="/js/typed/typed.js"></script>
-<script src="/js/core/script.js"></script>
-<script src="/js/core/index.js"></script>
+<script src="/customer/js/swiperjs/swiper-bundle.min.js"></script>
+<script src="/customer/js/typed/typed.js"></script>
+<script src="/customer/js/core/script.js"></script>
+<script src="/customer/js/core/index.js"></script>
 </body>
 </html>

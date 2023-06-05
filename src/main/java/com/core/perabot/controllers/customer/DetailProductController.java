@@ -8,6 +8,6 @@ public class DetailProductController {
 
     @GetMapping("/detail-product/tes")
     public String index(){
-        return "detail-product";
+        return "customer/detail-product";
     }
 }

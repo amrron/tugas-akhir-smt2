@@ -5,17 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Didol.shop</title>
+    <title>Perabot.shop</title>
 
     <!-- ICON HEAD -->
     <link rel="icon" href="/image/icon/perabot.svg">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/shop.css">
-    <link rel="stylesheet" href="/css/component.css">
-    <link rel="stylesheet" href="/css/responsive.css">
-    <link rel="stylesheet" href="/css/nouislider.min.css">
+    <link rel="stylesheet" href="/customer/css/style.css">
+    <link rel="stylesheet" href="/customer/css/shop.css">
+    <link rel="stylesheet" href="/customer/css/component.css">
+    <link rel="stylesheet" href="/customer/css/responsive.css">
+    <link rel="stylesheet" href="/customer/css/nouislider.min.css">
 
     <!-- FONT AWESOME -->
 <!--    <link rel="stylesheet" href="/font/fontawesome/css/all.css">-->
@@ -33,7 +33,7 @@
 <div th:text="${tes}">
 </div>
 
-<div th:replace="~{components/navbar.html :: navbar}"></div>
+<div th:replace="~{customer/components/navbar.html :: navbar}"></div>
 
 <main class="shop">
     <div class="current-page">
@@ -96,7 +96,7 @@
         <div class="content-shop" th:classappend="${databarang.isEmpty() && filterEmpty} ? 'content-shop-1r' : ''">
 
             <div th:if="${databarang.isEmpty() && filterEmpty}" class="box-animNoResult">
-                <div id="animNoResult" data-lnkAnim="/js/animated/noResult.json"></div>
+                <div id="animNoResult" data-lnkAnim="/customer/js/animated/noResult.json"></div>
                 <p>
                     <span class="text">tidak ada hasil</span>
                     <span id="valNoResult"></span>
@@ -135,11 +135,11 @@
     </div>
 </main>
 
-<div th:replace="~{components/footer.html :: footer}"></div>
+<div th:replace="~{customer/components/footer.html :: footer}"></div>
 
-<script src="/js/core/script.js"></script>
-<script src="/js/animated/lottie.js"></script>
-<script src="/js/range/nouislider.min.js"></script>
-<script src="/js/core/shop.js"></script>
+<script src="/customer/js/core/script.js"></script>
+<script src="/customer/js/animated/lottie.js"></script>
+<script src="/customer/js/range/nouislider.min.js"></script>
+<script src="/customer/js/core/shop.js"></script>
 </body>
 </html>

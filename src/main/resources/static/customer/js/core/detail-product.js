@@ -1,7 +1,7 @@
 const widthBox = document.querySelector('main.detail-product .right .ac')
-const inputNumber = widthBox.querySelector('#custom-number')
-const plus = widthBox.querySelector('#plus')
-const min = widthBox.querySelector('#min')
+const inputNumber = document.querySelector('#custom-number')
+const plus = document.querySelector('#plus')
+const min = document.querySelector('#min')
 if( inputNumber.value == '' ){
     inputNumber.value = 1
 }
@@ -213,10 +213,10 @@ for( let cu=0; cu<elmCopyUrl.length; cu++ ){
 }
 
 //----------------------------------------------------------------------CATEGORY LINK
-const categorylink = document.querySelector('#categoryLink')
-categorylink.onclick = (e)=>{
-    e.preventDefault()
-    const text = categorylink.innerText
-    const url = encodeURI(categorylink.getAttribute('data-url'))
-    window.location.href = `${url}?ctg=${text}`
-}
+// const categorylink = document.querySelector('#categoryLink')
+// categorylink.onclick = (e)=>{
+//     e.preventDefault()
+//     const text = categorylink.innerText
+//     const url = encodeURI(categorylink.getAttribute('data-url'))
+//     window.location.href = `${url}?ctg=${text}`
+// }

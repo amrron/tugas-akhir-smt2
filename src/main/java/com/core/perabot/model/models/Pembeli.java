@@ -1,11 +1,17 @@
 package com.core.perabot.model.models;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
-@Table(name = "pembeli")
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity
+@Table(name = "pembeli")
 public class Pembeli {
 
     @Id
@@ -17,7 +23,7 @@ public class Pembeli {
     private String nama_pembeli;
 
     @Column(name = "no_hp")
-    private String email;
+    private String no_hp;
 
     @Column(name = "password")
     private String password;

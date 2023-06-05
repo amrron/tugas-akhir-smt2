@@ -2,11 +2,14 @@ package com.core.perabot.controllers.customer;
 
 import com.core.perabot.model.models.Barang;
 import com.core.perabot.model.models.Kategori;
+import com.core.perabot.model.models.Keranjang;
 import com.core.perabot.model.repository.BarangRepository;
 import com.core.perabot.model.repository.KategoriRepository;
+import com.core.perabot.model.repository.KeranjangRepository;
 import com.core.perabot.model.specifications.BarangSpecifications;
 import com.core.perabot.services.Services;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Controller;
@@ -23,10 +26,12 @@ public class ShopController {
     private Services services;
     private final BarangRepository barangRepository;
     private final KategoriRepository kategoriRepository;
+    private final KeranjangRepository keranjangRepository;
 
-    public ShopController(BarangRepository barangRepository, KategoriRepository kategoriRepository) {
+    public ShopController(BarangRepository barangRepository, KategoriRepository kategoriRepository, KeranjangRepository keranjangRepository) {
         this.barangRepository = barangRepository;
         this.kategoriRepository = kategoriRepository;
+        this.keranjangRepository = keranjangRepository;
     }
 
     @GetMapping("/shop")
@@ -101,5 +106,28 @@ public class ShopController {
 
         return "customer/shop";
     }
+
+    @PostMapping("/shop/addcart")
+    public String addCart(@ModelAttribute("keranjang")Keranjang keranjang, HttpSession session){
+        Boolean status = (Boolean) session.getAttribute("authenticated");
+
+        if (status != null){
+            Long id = (Long) session.getAttribute("id_pembeli");
+
+            Long id_barang = keranjang.getId_barang().getId_barang();
+            Barang dbBarang = barangRepository.findById_barang(Math.toIntExact(id_barang));
+            Integer subtotal = dbBarang.getHarga() * keranjang.getJumlah();
+
+            keranjang.setId_pembeli(id);
+            keranjang.setSub_total(subtotal);
+            keranjang.setStatus_pesan(false);
+
+            keranjangRepository.save(keranjang);
+
+            return "redirect:/cart";
+        }
+        else {
+            return "redirect:/auth";
+        }    }
 
 }

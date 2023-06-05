@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Perabot.shop</title>
+
+  <!-- ICON HEAD -->
+  <link rel="icon" href="/image/icon/perabot.svg">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/customer/css/style.css">
+  <link rel="stylesheet" href="/customer/css/account.css">
+  <link rel="stylesheet" href="/customer/css/component.css">
+  <link rel="stylesheet" href="/customer/css/responsive.css">
+
+  <!-- FONT AWESOME -->
+  <link rel="stylesheet" href="/font/fontawesome/css/all.css">
+
+  <!-- FONT GOOGLE -->
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Josefin+Sans:100,200,300,400,500,600,700,800,900|Montserrat:100,200,300,400,500,600,700,800,900">
+
+
+</head>
+
+<body>
+
+<div th:replace="~{customer/components/navbar.html :: navbar}"></div>
+
+<main class="account">
+  <div class="header">
+    <img src="/customer/image/bg/bg-account.jpg">
+    <div class="text">
+      <p class="montserrat">Akun</p>
+    </div>
+  </div>
+  <div class="content section">
+    <div class="box-account">
+      <div class="profile-image">
+        <div class="box-img">
+          <div class="img">
+            <img src="/customer/image/profile-image/default.png">
+          </div>
+        </div>
+      </div>
+
+      <div class="wajib" data-contentMove="profil">
+        <p class="head-form">Profil</p>
+        <div class="box-data">
+          <div class="box-username data">
+            <span class="label">Nama pengguna</span>
+            <p><span th:text="${pembeli.nama_pembeli}"></span>
+              <a href="">
+                <i class="fas fa-edit"></i>
+              </a>
+            </p>
+          </div>
+          <div class="box-email data">
+            <span class="label">No. HP</span>
+            <p><span th:text="${pembeli.no_hp}"></span>
+              <a href="">
+                <i class="fas fa-edit"></i>
+              </a>
+            </p>
+          </div>
+          <div style="display: flex; justify-content: end;">
+            <button style="padding: 10px; background-color: #e82144; outline: none; border: none; color: #fff;">
+              <a href="/auth/logout" style="color: #fff; height: 100%;">Logout</a>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="setting move-hide" data-contentMove="setting">
+        <p class="head-form">Pengaturan akun</p>
+        <div class="box-data">
+          <div class="box-password data">
+            <span class="label">Kata sandi</span>
+            <p>********
+              <a href="">
+                <i class="fas fa-edit"></i>
+              </a>
+            </p>
+          </div>
+          <div class="remove-account data">
+            <span class="label">Hapus akun</span>
+            <p>Hapus
+              <a href="">
+                <i class="fas fa-trash-alt"></i>
+              </a>
+            </p>
+          </div>
+          <div class="logout data">
+            <span class="label">Logout</span>
+            <p>Keluar
+              <a href="">
+                <i class="fas fa-sign-out-alt"></i>
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div th:replace="~{customer/components/footer.html :: footer}"></div>
+
+<script src="/customer/js/core/script.js"></script>
+<script src="/customer/js/core/account.js"></script>
+
+</body>
+
+</html>
