@@ -59,13 +59,13 @@
                th:style="'background-image: url(' + ${barang.gambar_url} + ');'"></div>
           <p class="cursor-pointer-custom not-close" id="detail-btnShow">lihat</p>
         </div>
-        <div class="share">
-          <a href=""> <i class="fab fa-facebook-f fb"></i> </a>
-          <a href=""> <i class="fab fa-instagram ig"></i> </a>
-          <a href=""> <i class="fab fa-twitter tw"></i> </a>
-          <a href=""> <i class="fab fa-whatsapp wa"></i> </a>
-          <a href=""> <i class="fas fa-link lnk"></i> </a>
-        </div>
+<!--        <div class="share">-->
+<!--          <a href=""> <i class="fab fa-facebook-f fb"></i> </a>-->
+<!--          <a href=""> <i class="fab fa-instagram ig"></i> </a>-->
+<!--          <a href=""> <i class="fab fa-twitter tw"></i> </a>-->
+<!--          <a href=""> <i class="fab fa-whatsapp wa"></i> </a>-->
+<!--          <a href=""> <i class="fas fa-link lnk"></i> </a>-->
+<!--        </div>-->
       </div>
       <div class="right">
         <div class="box" id="box">
@@ -90,41 +90,42 @@
   </div>
 
   <div class="section descAndRev" id="">
+
+    <div class="reviews">
+  <!--      <p class="head-reviews montserrat">Ulasan</p>-->
+  <!--      <div class="rating">-->
+  <!--        <form>-->
+  <!--          <div class="stars box-IR">-->
+  <!--            <label for="">Penilaianmu <span class="required">*</span></label>-->
+  <!--            <div class="box-stars">-->
+  <!--              <i class="far fa-star"></i>-->
+  <!--              <i class="far fa-star"></i>-->
+  <!--              <i class="far fa-star"></i>-->
+  <!--              <i class="far fa-star"></i>-->
+  <!--              <i class="far fa-star"></i>-->
+  <!--            </div>-->
+  <!--          </div>-->
+  <!--          <div class="message box-IR">-->
+  <!--            <label for="message">Pesan <span class="required">*</span></label>-->
+  <!--            <textarea class="josefin" type="text" name="" id="message" rows="6"></textarea>-->
+  <!--          </div>-->
+  <!--          <div class="name box-IR">-->
+  <!--            <label for="name">Nama <span class="required">*</span></label>-->
+  <!--            <input class="josefin" type="text" name="" id="name" autocomplete="off">-->
+  <!--          </div>-->
+  <!--          <div class="email box-IR">-->
+  <!--            <label for="email">Email <span class="required">*</span></label>-->
+  <!--            <input class="josefin" type="text" name="" id="email" autocomplete="off">-->
+  <!--          </div>-->
+  <!--          <div class="button">-->
+  <!--            <button type="submit" class="josefin">kirim</button>-->
+  <!--          </div>-->
+  <!--        </form>-->
+  <!--      </div>-->
+    </div>
     <div class="deskripsi">
       <p class="judul montserrat">Deskripsi</p>
       <span class="content" th:text="${barang.deskripsi}"></span>
-    </div>
-    <div class="reviews">
-      <p class="head-reviews montserrat">Ulasan</p>
-      <div class="rating">
-        <form>
-          <div class="stars box-IR">
-            <label for="">Penilaianmu <span class="required">*</span></label>
-            <div class="box-stars">
-              <i class="far fa-star"></i>
-              <i class="far fa-star"></i>
-              <i class="far fa-star"></i>
-              <i class="far fa-star"></i>
-              <i class="far fa-star"></i>
-            </div>
-          </div>
-          <div class="message box-IR">
-            <label for="message">Pesan <span class="required">*</span></label>
-            <textarea class="josefin" type="text" name="" id="message" rows="6"></textarea>
-          </div>
-          <div class="name box-IR">
-            <label for="name">Nama <span class="required">*</span></label>
-            <input class="josefin" type="text" name="" id="name" autocomplete="off">
-          </div>
-          <div class="email box-IR">
-            <label for="email">Email <span class="required">*</span></label>
-            <input class="josefin" type="text" name="" id="email" autocomplete="off">
-          </div>
-          <div class="button">
-            <button type="submit" class="josefin">kirim</button>
-          </div>
-        </form>
-      </div>
     </div>
   </div>
 
