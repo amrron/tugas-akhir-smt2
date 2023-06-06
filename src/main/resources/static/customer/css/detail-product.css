@@ -16,8 +16,9 @@ main.detail-product .left .box-img {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	position: sticky;
+	top: 100px;
 	overflow: hidden;
-	position: relative;
 }
 
 main.detail-product .left .box-img::after {
@@ -242,40 +243,42 @@ main.detail-product .right .method i {
 }
 
 /*----------SHARE----------*/
-main.detail-product .left .share {
-	display: flex;
-	gap: 1rem;
-	margin-top: 1rem;
+/* main.detail-product .left .share {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  position: sticky;
+  top:1rem
 }
 
 main.detail-product .left .share i {
-	padding: 5px 10px;
-	border: 1px solid var(--black01);
+  padding: 5px 10px;
+  border: 1px solid var(--black01);
 }
 
 main.detail-product .left .share i:hover {
-	box-shadow: 0 0 1px 1px var(--black01);
+  box-shadow: 0 0 1px 1px var(--black01);
 }
 
 main.detail-product .left .fb {
-	color: #3b5998;
+  color: #3b5998;
 }
 
 main.detail-product .left .ig {
-	color: #c13584;
+  color: #c13584;
 }
 
 main.detail-product .left .tw {
-	color: #1da1f2;
+  color: #1da1f2;
 }
 
 main.detail-product .left .wa {
-	color: #00e676;
+  color: #00e676;
 }
 
 main.detail-product .left .lnk {
-	color: var(--black);
-}
+  color: var(--black);
+} */
 
 /*---------------------------------------------DESCRIPTION AND REVIEWS---------------------------------------------*/
 main.detail-product .descAndRev {
@@ -373,4 +376,32 @@ main.detail-product .descAndRev button {
 	padding: 10px 20px;
 	border: 0;
 	letter-spacing: 1px;
+}
+
+main.detail-product .left {
+	position: sticky;
+	top: 50px;
+}
+
+.box-add-cart {
+	min-height: 500px;
+}
+
+.left {
+	position: sticky;
+	top: 100px;
+}
+
+
+.deskripsi {
+	background-color: var(--white);
+	padding: 20px;
+	box-shadow: 0 0 5px 1px var(--black01);
+	border-radius: 5px;
+}
+
+.deskripsi .content {
+	font-weight: 300;
+	color: var(--black);
+	line-height: 140%;
 }

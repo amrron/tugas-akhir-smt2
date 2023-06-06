@@ -1,4 +1,4 @@
-package com.core.perabot.controllers.client;
+package com.core.perabot.controllers.customer;
 
 //import com.core.perabot.model.models.Pembeli;
 //import com.core.perabot.model.repository.UserRepository;
